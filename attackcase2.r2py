@@ -1,0 +1,19 @@
+if "testfile.txt.a" in listfiles():
+  removefile("testfile.txt.a")
+if "testfile.txt.b" in listfiles():
+  removefile("testfile.txt.b")
+
+myfile = ABopenfile("testfile.txt",True)  
+
+# Write valid data in invalid position to the file
+myfile.writeat("SingingtreE", -1)
+myfile.close()
+
+myfile = ABopenfile("testfile.txt",True) 
+
+try:
+ assert('SE' == myfile.readat(None, 0))						
+ myfile.close()
+
+except:
+ myfile.close()
