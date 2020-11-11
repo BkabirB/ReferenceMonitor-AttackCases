@@ -1,0 +1,25 @@
+if "testfile.txt.a" in listfiles():
+  removefile("testfile.txt.a")
+if "testfile.txt.b" in listfiles():
+  removefile("testfile.txt.b")
+
+myfile=ABopenfile("testfile.txt",True)  
+myfile.writeat("SingingtreE",0)
+myfile.close()
+
+myfile=ABopenfile("testfile.txt",True)  
+myfile.writeat("starfishgleE",11)
+myfile.close()
+
+myfile=ABopenfile("testfile.txt",True)
+
+try:
+ assert('SingingtreEstarfishgleE' == myfile.readat(None,0))
+ myfile.close()
+
+except:
+ myfile.close()
+ log("File update was unsuccessful")
+ 
+finally:
+  exitall()
